@@ -1,13 +1,8 @@
-on:
-  pull_request:
-    types:
-      - ready_for_review
-    branches:
-      - 'main'
+on: issue_comment
 
 jobs:
   check-pr-requirements:
-    if: github.event.review.state == 'approved'
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
 
     steps:
