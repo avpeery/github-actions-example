@@ -4,11 +4,13 @@ jobs:
   check-pr-requirements:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
+    env:
+      PR_BODY: ${{ github.event.issue.pull_request.body }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Echo PR body
-        run: echo '${{ github.event.issue.pull_request.body }}'
+        run: echo '$PR_BODY'
       - name: Check if changelog entry exists
         uses: ./ #uses action in root repository
         id: check-changelog
