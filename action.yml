@@ -4,7 +4,6 @@ inputs:
   pr-body:
     description: 'PR body from the github event'
     required: true
-    default: ''
 outputs:
   approved-changelog-entry:
     description: 'Changelog entry has passed requirements'
