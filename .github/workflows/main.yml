@@ -16,6 +16,6 @@ jobs:
         uses: ./ #uses action in root repository
         id: check-changelog
         with:
-          pr-body: "$PR_BODY"
+          pr-body: echo "$PR_BODY"
       - name: Retrieve output if changelog entry exists
         run: echo "${{ steps.check-changelog.outputs.approved-changelog-entry}}"
