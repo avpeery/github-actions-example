@@ -5,12 +5,13 @@ jobs:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PR_BODY: ${{ github.event.issue.pull_request.body }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Echo PR body
-        run: echo '$PR_BODY'
+        run: echo "$PR_BODY"
       - name: Check if changelog entry exists
         uses: ./ #uses action in root repository
         id: check-changelog
