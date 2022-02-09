@@ -11,6 +11,6 @@ jobs:
         uses: ./ #uses action in root repository
         id: check-changelog
         with:
-          pr-body: ${{ github.event.pull_request.body }}
+          pr-body: ${{ github.event.issue.pull_request.body }}
       - name: Retrieve output if changelog entry exists
         run: echo '${{ steps.check-changelog.outputs.approved-changelog-entry}}'

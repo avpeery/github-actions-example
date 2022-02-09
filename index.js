@@ -3,7 +3,6 @@ const github = require('@actions/github');
 
 try {
     const prBody = core.getInput('pr-body');
-    console.log(prBody)
     const changelogEntry = prBody.match(/\<changelog\>(.+)<\/changelog>/);
     // Should create a standard of at least # characters long ("I am" is shortest English sentence).
     if (changelogEntry && changelogEntry[1].length() > 3) {
