@@ -15,8 +15,6 @@ jobs:
           node-version: 14.x
       - name: Install dependencies
         run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
       - name: Echo PR body
         run: echo "$PR_BODY"
       - name: Check if changelog entry exists
