@@ -2,7 +2,7 @@ on: issue_comment
 
 jobs:
   check-pr-requirements:
-    if: ${{ github.event.issue.pull_request }} && !contains(github.event.pull_request.labels, 'skip changelog')
+    if: ${{ github.event.issue.pull_request && !contains(github.event.pull_request.labels, 'skip changelog') }}
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
