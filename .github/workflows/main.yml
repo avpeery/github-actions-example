@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_EVENT: ${{ github.event }}
+      GITHUB_EVENT: ${{ github.event.label }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,4 +24,4 @@ jobs:
         with:
           pr-body: ${{ github.event.issue.body }}
       - name: Retrieve output if changelog entry exists
-        run: echo "${{ steps.check-changelog.outputs.approved-changelog-entry}}"
+        run: echo "$GITHUB_EVENT"
