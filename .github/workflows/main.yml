@@ -21,4 +21,4 @@ jobs:
         uses: ./ #uses action in root repository
         id: check-changelog
         with:
-          pr-body: ${{ github.event.body }}
+          pr-body: ${{ github.event.pull_request.body }}
