@@ -24,6 +24,6 @@ jobs:
         uses: ./ #uses action in root repository
         id: check-changelog
         with:
-          pr-body: ${{ github.event.issue.body }}
+          pr-body: ${{ github.event.body }}
       - name: Retrieve output if changelog entry exists
         run: echo "$GITHUB_EVENT"
