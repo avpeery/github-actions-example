@@ -1,10 +1,11 @@
 on:
   pull_request:
     types: [opened, reopened, edited, labeled]
+    branches: main
 
 jobs:
   check-pr-requirements:
-    if: ${{ contains(github.ref, 'main') && !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
