@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_EVENT: ${{ github.event.pull_request.labels }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -18,12 +17,8 @@ jobs:
           node-version: 14.x
       - name: Install dependencies
         run: npm install
-      - name: Retrieve output if changelog entry exists
-        run: echo "$GITHUB_EVENT" 
       - name: Check if changelog entry exists
         uses: ./ #uses action in root repository
         id: check-changelog
         with:
           pr-body: ${{ github.event.body }}
-      - name: Retrieve output if changelog entry exists
-        run: echo "$GITHUB_EVENT"
