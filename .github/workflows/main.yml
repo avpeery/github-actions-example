@@ -4,7 +4,7 @@ on:
 
 jobs:
   check-pr-requirements:
-    if: ${{ contains(github.ref, 'main' && !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
+    if: ${{ contains(github.ref, 'main') && !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
