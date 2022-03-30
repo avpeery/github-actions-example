@@ -2,7 +2,7 @@ name: Github Actions
 
 on:
   pull_request:
-    types: [opened, reopened, edited, labeled]
+    types: [opened, reopened, edited, labeled, unlabeled]
 
 jobs:
   check-pr-requirements:
@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Check if changelog entry exists
-        uses: ./ #uses action in root repository
+        uses: ./.github/actions #uses action in .github/actions
         id: check-changelog
         with:
           pr-body: ${{ github.event.pull_request.body }}
