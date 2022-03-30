@@ -2,7 +2,7 @@ name: Github Actions
 
 on:
   pull_request:
-
+    types: [opened, reopened, edited, labeled, unlabeled, synchronize]
 jobs:
   check-pr-requirements:
     if: ${{ !contains(github.event.pull_request.labels.*.name, 'skip changelog') }}
