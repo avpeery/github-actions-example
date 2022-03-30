@@ -2,7 +2,6 @@ name: Github Actions
 
 on:
   pull_request:
-    types: [opened, reopened, edited, labeled, unlabeled]
 
 jobs:
   check-pr-requirements:
@@ -18,7 +17,7 @@ jobs:
         with:
           node-version: 14.x
       - name: Install dependencies
-        run: npm install
+        run: yarn install --cwd ./.github/actions
       - name: Check if changelog entry exists
         uses: ./.github/actions #uses action in .github/actions
         id: check-changelog
